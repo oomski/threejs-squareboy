@@ -9,7 +9,7 @@ const h = window.innerHeight;
 const scene = new THREE.Scene();
 
 const camera = new THREE.PerspectiveCamera(75, w / h, 0.1, 1000);
-camera.position.z = 5;
+camera.position.z = 3;;
 // make canvas transparent
 const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
@@ -68,13 +68,14 @@ squareboy.position.sub(center); // move model so its center is at (0,0,0) relati
 pivot.add(squareboy);
 
 // start rotated 270 degrees around Y
-pivot.rotation.y = 3 * Math.PI / 2; // 270deg
+pivot.rotation.y = 3 * Math.PI / 2.2; // 270deg
+pivot.rotation.x = -0.1
 
 // bounce setup: 180° total (min = 270° - 180° = 90°, max = 270°)
 const clock = new THREE.Clock();
 const rotationSpeed = 0.3; // radians per second (~0.005 per frame at 60fps)
 const startAngle = pivot.rotation.y; // 270deg
-const fullRange = Math.PI; // 180° in radians
+const fullRange = 0.8 * Math.PI; // 180° in radians
 const minAngle = startAngle - fullRange; // 90deg
 const maxAngle = startAngle; // 270deg
 let rotationDirection = -1; // start moving away from 270° in the same direction as before
